@@ -5,7 +5,7 @@
 - NIM: 23.01.55.0012
 
 ## URL Website
-[https://github.com/Aishalft12/uts-pweb-23.01.55.0012](https://github.com/Aishalft12/uts-pweb-23.01.55.0012)
+[[https://github.com/Aishalft12/uts-pweb-23.01.55.0012](https://github.com/Aishalft12/uts-pweb-23.01.55.0012)](http://localhost/boneka_plush/)
 
 ## Penjelasan Fitur
 Website "Boneka Plush" adalah platform e-commerce yang menawarkan berbagai produk boneka plush yang lucu dan menarik. Fitur-fitur utama dari website ini meliputi:
