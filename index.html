@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Aesthetic - Beranda</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #444; /* Darker gray for better readability */
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff80ab; /* Header background color */
+            padding: 15px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5em; /* Increase font size */
+            font-family: 'Poppins', sans-serif;
+            color: white; /* Logo color */
+            font-weight: bold;
+            text-align: center; /* Center align the text */
+        }
+
+        /* Banner styling */
+        .banner {
+            background-image: url('https://i.pinimg.com/originals/97/3d/85/973d85e1dc929d8f153e3bc4fa1945a6.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; /* White text color for banner */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .banner-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for better readability */
+        }
+
+        .banner-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 25px;
+            background-color: #ff4081; /* Button background color */
+            color: white; /* Button text color */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff80ab; /* Button hover effect */
+        }
+
+        /* About section styling */
+        .about {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #ffe6f0; /* Light pink background for about section */
+        }
+
+        .about h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            color: #ff4081; /* Darker pink for headings */
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            color: #333; /* Dark gray for paragraph text for better readability */
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Products section styling */
+        .products {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            color: #ff4081; /* Darker pink for product section heading */
+            margin-bottom: 20px;
+        }
+
+        .product-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+        }
+
+        .product-card {
+            background-color: white; /* White background for product cards */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 200px; /* Fixed width for cards */
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px); /* Subtle lift effect */
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 150px; /* Set a max height for images */
+            object-fit: cover; /* Cover to maintain aspect ratio */
+        }
+
+        .product-card h3 {
+            color: #ff4081; /* Darker pink for product titles */
+            margin: 10px 0; /* Margin for product titles */
+        }
+
+        .product-card p {
+            color: #666; /* Gray color for product prices */
+            margin: 5px 0; /* Margin for prices */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #ff80ab; /* Footer background color */
+            color: white; /* Footer text color */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #ffe6e6; /* Light pink for footer links */
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 5px; /* Margin for spacing between links */
+        }
+
+        footer a:hover {
+            color: white; /* White for footer link hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo" style="text-align: center; width: 100%;">
+                <h1 style="font-size: 2.5em;">ISTANA BONEKA</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Selamat datang di Istana Boneka!</h1>
+            <p>Temukan boneka lucu dan unik kami.</p>
+            <a href="products.html" class="button">Lihat Produk</a>
+        </div>
+    </div>
+
+    <section class="about">
+        <h2>Tentang Kami</h2>
+        <p>Kami menyediakan berbagai jenis boneka dengan kualitas terbaik dan desain yang lucu. Boneka kami cocok untuk semua usia dan dapat menjadi teman terbaik bagi anak-anak Anda.</p>
+    </section>
+
+    <section class="products">
+        <h2>Produk Terbaru</h2>
+        <div class="product-cards">
+            <div class="product-card">
+                <img src="https://i.pinimg.com/1200x/55/5f/ae/555faedccc04b00d726da420fc0993a4.jpg" alt="Boneka 1">
+                <h3>Boneka Kucing</h3>
+                <p>Harga: Rp100.000</p>
+                <a href="order.html" class="button">Beli</a> <!-- Link updated to "order.html" -->
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/1200x/7e/b3/af/7eb3af695d83469caaeff8d2b98365bf.jpg" alt="Boneka 2">
+                <h3>Boneka Anjing</h3>
+                <p>Harga: Rp120.000</p>
+                <a href="order.html" class="button">Beli</a> <!-- Link updated to "order.html" -->
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/1200x/f3/2b/5e/f32b5ea952946b48bfbba8b5d2cdcc04.jpg" alt="Boneka 3">
+                <h3>Boneka Beruang</h3>
+                <p>Harga: Rp150.000</p>
+                <a href="order.html" class="button">Beli</a> <!-- Link updated to "order.html" -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>
+                Informasi Toko | 
+                <a href="https://wa.me/081234567890">WhatsApp</a> | 
+                <a href="https://www.instagram.com/isbon.semarang?igsh=dWZ3ZjJncjh6Y3hs">Instagram</a> | 
+                <a href="https://maps.app.goo.gl/THLcdRvYGZwsn8dH9">Google Maps</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

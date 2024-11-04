@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Aesthetic - Pemesanan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Add Lobster font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #333; /* Dark text color */
+            font-family: 'Quicksand', sans-serif; /* Font family */
+            margin: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff80ab; /* Header color */
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 3em; /* Increased logo size */
+            font-family: 'Poppins', sans-serif; /* Updated logo font to Poppins */
+            color: white; /* Logo text color */
+            text-align: center; /* Center alignment */
+            margin: 0; /* Remove margin */
+        }
+
+        nav {
+            text-align: center; /* Center nav items */
+            margin-top: 10px; /* Space above nav */
+        }
+
+        nav a {
+            color: white; /* Nav link color */
+            text-decoration: none; /* No underline */
+            margin: 0 15px; /* Space between links */
+            font-size: 18px; /* Font size */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        nav a:hover {
+            color: #ffe6e6; /* Hover color */
+        }
+
+        /* Order section styling */
+        .order {
+            padding: 50px 20px; /* Padding for the section */
+            text-align: center; /* Center the text */
+        }
+
+        .order h1 {
+            font-size: 2em; /* Title size */
+            color: #ff4081; /* Title color */
+            margin-bottom: 20px; /* Space below title */
+        }
+
+        .order form {
+            max-width: 400px; /* Max width for form */
+            margin: auto; /* Center form */
+            background-color: white; /* Form background color */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding inside the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        .order label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space below labels */
+            color: #333; /* Label color */
+        }
+
+        .order input, .order select {
+            width: 100%; /* Full width inputs */
+            padding: 10px; /* Padding inside inputs */
+            margin-bottom: 15px; /* Space below inputs */
+            border: 1px solid #ddd; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .button {
+            padding: 10px 15px; /* Button padding */
+            background-color: #ff4081; /* Button background */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .button:hover {
+            background-color: #ff80ab; /* Hover color */
+        }
+
+        /* Order history section */
+        .order-history {
+            margin-top: 50px; /* Space above order history */
+            text-align: center; /* Center the text */
+        }
+
+        .order-history h2 {
+            font-size: 1.5em; /* Title size */
+            color: #ff4081; /* Title color */
+            margin-bottom: 20px; /* Space below title */
+        }
+
+        .order-history table {
+            width: 100%; /* Full width table */
+            border-collapse: collapse; /* Collapse borders */
+            margin: 0 auto; /* Center table */
+            background-color: white; /* Table background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        .order-history th, .order-history td {
+            border: 1px solid #ddd; /* Cell border */
+            padding: 10px; /* Padding in cells */
+            text-align: left; /* Align text to the left */
+        }
+
+        .order-history th {
+            background-color: #ff80ab; /* Header background */
+            color: white; /* Header text color */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #ff80ab; /* Footer color */
+            color: white; /* Footer text color */
+            padding: 20px 0; /* Padding for footer */
+            text-align: center; /* Center footer text */
+        }
+
+        footer p {
+            margin: 0; /* Remove margin */
+            font-size: 0.9em; /* Font size */
+        }
+
+        footer a {
+            color: #ffe6e6; /* Footer link color */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold links */
+        }
+
+        footer a:hover {
+            color: white; /* Hover color */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ISTANA BONEKA</div>
+            <nav>
+                <a href="index.html">Beranda</a>
+                <a href="products.html">Produk</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="order">
+        <h1>Pemesanan</h1>
+        <form id="orderForm">
+            <label for="product">Produk:</label>
+            <select id="product" required>
+                <option value="" disabled selected>Pilih produk</option>
+                <option value="Boneka Kucing">Boneka Kucing</option>
+                <option value="Boneka Anjing">Boneka Anjing</option>
+                <option value="Boneka Kelinci">Boneka Kelinci</option>
+                <option value="Boneka Beruang">Boneka Beruang</option>
+                <option value="Boneka Sapi">Boneka Sapi</option>
+                <option value="Boneka Domba">Boneka Domba</option>
+                <option value="Boneka Kucing Hitam">Boneka Kucing Hitam</option>
+                <option value="Boneka Kucing Putih">Boneka Kucing Putih</option>
+                <option value="Boneka Hiu">Boneka Hiu</option>
+            </select>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" required>
+            <label for="phone">Nomor Telepon:</label>
+            <input type="text" id="phone" required>
+            <button type="submit" class="button">Kirim Pemesanan</button>
+        </form>
+    </section>
+
+    <section class="order-history">
+        <h2>Riwayat Pembelian</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produk</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Alamat</th>
+                    <th>Nomor Telepon</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody id="orderList"></tbody>
+        </table>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Informasi Toko | <a href="https://www.instagram.com/isbon.semarang?igsh=dWZ3ZjJncjh6Y3hs">Instagram</a> | <a href="https://wa.me/081234567890">WhatsApp</a> | <a href="https://maps.app.goo.gl/THLcdRvYGZwsn8dH9"> Google Maps</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Load order history from local storage
+        document.addEventListener("DOMContentLoaded", function() {
+            loadOrderHistory();
+        });
+
+        // Handle form submission
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const product = document.getElementById("product").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+            const phone = document.getElementById("phone").value;
+
+            // Create order object
+            const order = {
+                product: product,
+                name: name,
+                email: email,
+                address: address,
+                phone: phone,
+                date: new Date().toLocaleString() // Current date and time
+            };
+
+            // Save order to local storage
+            saveOrder(order);
+            // Clear the form
+            this.reset();
+        });
+
+        // Save order to local storage
+        function saveOrder(order) {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.push(order);
+            localStorage.setItem("orders", JSON.stringify(orders));
+            loadOrderHistory(); // Reload order history
+        }
+
+        // Load and display order history
+        function loadOrderHistory() {
+            const orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const orderList = document.getElementById("orderList");
+            orderList.innerHTML = ""; // Clear previous list
+            orders.forEach(order => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${order.product}</td>
+                    <td>${order.name}</td>
+                    <td>${order.email}</td>
+                    <td>${order.address}</td>
+                    <td>${order.phone}</td>
+                    <td>${order.date}</td>
+                `;
+                orderList.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Aesthetic - Produk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #333; /* Dark text color */
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .products-title {
+            text-align: center;
+            margin-top: 20px;
+            color: #ff4081; /* Title color */
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+        }
+
+        /* Search bar styles */
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: #be6281;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-icon img {
+            width: 30px; /* Cart icon size */
+            height: 30px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Card style */
+        .card {
+            border: 1px solid #ddd; /* Card border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            margin: 10px; /* Margin between cards */
+            background-color: white; /* Card background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: transform 0.2s; /* Animation for hover effect */
+            width: calc(33% - 20px); /* Width of card to fit three in a row */
+            display: flex; /* Flexbox for content alignment */
+            flex-direction: column; /* Stack content vertically */
+            align-items: center; /* Center items horizontally */
+        }
+
+        .card img {
+            max-width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+
+        .card:hover {
+            transform: scale(1.02); /* Slight zoom on hover */
+        }
+
+        /* Container for cards */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow cards to wrap */
+            justify-content: center; /* Center cards in the container */
+            padding: 20px; /* Padding for container */
+        }
+
+        /* Notification style */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4081;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            z-index: 1000; /* Ensures it appears above other content */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #ff80ab; /* Footer color */
+            color: white; /* Footer text color */
+            padding: 20px 0; /* Padding for footer */
+            text-align: center; /* Center footer text */
+        }
+
+        footer p {
+            margin: 0; /* Remove margin */
+            font-size: 0.9em; /* Font size */
+        }
+
+        footer a {
+            color: #ffe6e6; /* Footer link color */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold links */
+        }
+
+        footer a:hover {
+            color: white; /* Hover color */
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(100% - 20px); /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ISTANA BONEKA</div>
+            <a href="index.html">Beranda</a>
+</nav>
+
+        </div>
+    </header>
+
+    <div class="notification" id="notification">Produk telah ditambahkan ke keranjang!</div>
+
+    <div class="cart-icon" onclick="openCart()">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart Icon"/>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Keranjang Anda</h2>
+            <div id="cartItems"></div>
+            <button onclick="buyItems()">Beli</button>
+            <button onclick="closeCart()">Tutup</button>
+        </div>
+    </div>
+
+    <main>
+        <h1 class="products-title">Semua Produk</h1>
+        
+        <!-- Search bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Cari produk..." oninput="filterProducts()">
+        </div>
+
+        <div class="products-container" id="productsContainer">
+            <div class="card" data-name="Boneka Kucing">
+                <img src="https://i.pinimg.com/1200x/55/5f/ae/555faedccc04b00d726da420fc0993a4.jpg" alt="Boneka Kucing">
+                <h3>Boneka Kucing</h3>
+                <p>Boneka kucing lucu yang siap menemani hari-hari Anda.</p>
+                <p><strong>Harga: Rp100.000</strong></p>
+                <button onclick="addToCart('Boneka Kucing', 100000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Anjing">
+                <img src="https://i.pinimg.com/1200x/7e/b3/af/7eb3af695d83469caaeff8d2b98365bf.jpg" alt="Boneka Anjing">
+                <h3>Boneka Anjing</h3>
+                <p>Boneka anjing yang lembut dan menggemaskan.</p>
+                <p><strong>Harga: Rp120.000</strong></p>
+                <button onclick="addToCart('Boneka Anjing', 120000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Kelinci">
+                <img src="https://i.pinimg.com/1200x/72/7a/36/727a369aadde77994aeb4e4ba7d30c83.jpg" alt="Boneka Kelinci">
+                <h3>Boneka Kelinci</h3>
+                <p>Boneka kelinci yang lucu dengan telinga panjang.</p>
+                <p><strong>Harga: Rp110.000</strong></p>
+                <button onclick="addToCart('Boneka Kelinci', 110000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Beruang">
+                <img src="https://i.pinimg.com/1200x/f3/2b/5e/f32b5ea952946b48bfbba8b5d2cdcc04.jpg" alt="Boneka Beruang">
+                <h3>Boneka Beruang</h3>
+                <p>Boneka beruang besar yang menghangatkan hati.</p>
+                <p><strong>Harga: Rp150.000</strong></p>
+                <button onclick="addToCart('Boneka Beruang', 150000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Sapi">
+                <img src="https://i.pinimg.com/1200x/29/23/21/2923213dd69df44902fbd32f4e1777e2.jpg" alt="Boneka Sapi">
+                <h3>Boneka Sapi</h3>
+                <p>Boneka sapi yang imut untuk koleksi Anda.</p>
+                <p><strong>Harga: Rp130.000</strong></p>
+                <button onclick="addToCart('Boneka Sapi', 130000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Domba">
+                <img src="https://i.pinimg.com/1200x/8c/27/b7/8c27b745ad6e36575e8ca62eeae3d00b.jpg" alt="Boneka Domba">
+                <h3>Boneka Domba</h3>
+                <p>Boneka domba yang lembut dan nyaman.</p>
+                <p><strong>Harga: Rp140.000</strong></p>
+                <button onclick="addToCart('Boneka Domba', 140000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Kucing Hitam">
+                <img src="https://i.pinimg.com/1200x/44/33/fc/4433fcd9e184f14e69eb49d19cb0763b.jpg" alt="Boneka Kucing Hitam">
+                <h3>Boneka Kucing Hitam</h3>
+                <p>Boneka kucing hitam yang misterius dan menawan.</p>
+                <p><strong>Harga: Rp125.000</strong></p>
+                <button onclick="addToCart('Boneka Kucing Hitam', 125000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Kucing Putih">
+                <img src="https://i.pinimg.com/1200x/7b/ff/5c/7bff5c5d13bc1db9555c44857841b59a.jpg" alt="Boneka Kucing Putih">
+                <h3>Boneka Kucing Putih</h3>
+                <p>Boneka kucing putih yang anggun dan cantik.</p>
+                <p><strong>Harga: Rp125.000</strong></p>
+                <button onclick="addToCart('Boneka Kucing Putih', 125000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="card" data-name="Boneka Kucing Biru">
+                <img src="https://i.pinimg.com/1200x/b7/49/94/b7499472c027fc2da298f5d6930e10a2.jpg" alt="Boneka Kucing Biru">
+                <h3>Boneka Hiu</h3>
+                <p>Boneka hiu yang unik dan lucu.</p>
+                <p><strong>Harga: Rp125.000</strong></p>
+                <button onclick="addToCart('Boneka Kucing Biru', 125000)">Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Informasi Toko | <a href="https://www.instagram.com/isbon.semarang?igsh=dWZ3ZjJncjh6Y3hs">Instagram</a> | <a href="https://wa.me/081234567890">WhatsApp</a> | <a href="https://maps.app.goo.gl/THLcdRvYGZwsn8dH9"> Google Maps</a></p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            document.getElementById("notification").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("notification").style.display = "none";
+            }, 3000);
+        }
+
+        function openCart() {
+            const cartModal = document.getElementById("cartModal");
+            const cartItemsContainer = document.getElementById("cartItems");
+            cartItemsContainer.innerHTML = ""; // Clear previous items
+            cart.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.textContent = `${item.name} - Rp${item.price}`;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+            cartModal.style.display = "block";
+        }
+
+        function closeCart() {
+            document.getElementById("cartModal").style.display = "none";
+        }
+
+        function buyItems() {
+            if (cart.length === 0) {
+                alert("Keranjang Anda kosong.");
+                return;
+            }
+            // Redirect to order page
+            window.location.href = 'order.html';
+        }
+
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const container = document.getElementById('productsContainer');
+            const cards = container.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const productName = card.getAttribute('data-name').toLowerCase();
+                if (productName.includes(filter)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
